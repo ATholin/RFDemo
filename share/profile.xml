@@ -1,0 +1,15 @@
+<SystemConfiguration>
+<!--Export type is Clone,XML,IncludeHash-->
+<!--Exported configuration may contain commented attributes. Attributes may be commented due to dependency, destructive nature, preserving server identity or for security reasons.-->
+<!--Exported configuration does not contain FC-HBA data as the presence of the appropriate cards could not be detected!-->
+<Component FQDD="iDRAC.Embedded.1">
+ <Attribute Name="NIC.1#DNSRacName">iDRAC-namn</Attribute>
+</Component>
+
+<Component FQDD="System.Embedded.1">
+	<Attribute Name="RepositoryUpdate">/repo/Catalog.xml</Attribute>
+</Component>
+
+
+
+</SystemConfiguration>

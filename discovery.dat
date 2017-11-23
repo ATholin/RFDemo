@@ -1,0 +1,5 @@
+## Discovery database. Add static servers in top. Dynamic discovered servers will be added in the end.
+##StaticServers
+192.168.1.220
+192.168.1.220
+##DynamicServers
