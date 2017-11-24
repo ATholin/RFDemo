@@ -2,6 +2,7 @@ import requests
 import json
 import urllib3
 import get_servers
+import pandas
 urllib3.disable_warnings(urllib3.exceptions.SecurityWarning)
 
 lines = []
@@ -22,10 +23,10 @@ for server in servers:
 	systemData = system.json()
 	storageData = storage.json()
 	
-	print ("System {}:".format(systemData[u'SKU']))
-	
-	print ("\nMemory Summary\nHealth status: {}".format(systemData[u'MemorySummary'][u'Status'][u'Health']))
-	
-	print ("\nProcessor Summary\nHealth status: {}".format(systemData[u'ProcessorSummary'][u'Status'][u'Health']))
-	
-	print ("\nSystem\nHealth status: {}".format(systemData[u'Status'][u'Health']))
+	for key in systemData:
+		if (key == "Status"):
+			print (key+": {}".format(systemData[u'Status'][u'Health']))
+		if isinstance(systemData[key], dict):
+			for statusKey in systemData[key]:
+				if (statusKey == "Status"):
+					print (key+": {}".format(systemData[u'Status'][u'Health']))
