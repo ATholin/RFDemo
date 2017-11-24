@@ -2,7 +2,6 @@ import requests
 import json
 import urllib3
 import get_servers
-import pandas
 urllib3.disable_warnings(urllib3.exceptions.SecurityWarning)
 
 lines = []
@@ -33,4 +32,4 @@ for server in servers:
 		if isinstance(systemData[key], dict):
 			for statusKey in systemData[key]:
 				if (statusKey == "Status"):
-					print (key+": {}".format(systemData[u'Status'][u'Health']))
+					print (key+": {}".format(systemData[key][u'Status'][u'Health']))

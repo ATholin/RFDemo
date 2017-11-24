@@ -27,7 +27,7 @@ f=open(file,"r")
 
 url = 'https://%s/redfish/v1/Managers/iDRAC.Embedded.1/Actions/Oem/EID_674_Manager.ImportSystemConfiguration' % idrac_ip
 
-payload = {"ShutdownType":"Forced","HostPowerState":"Off","ShareParameters":{"Target":"All","IPAddress":share_ip,"ShareName":share_dir,"ShareType":"CIFS","FileName":file,"UserName":"test","Password":"test"}}
+payload = {"ShutdownType":"Forced","HostPowerState":"Off","ShareParameters":{"Target":"All","IPAddress":share_ip,"ShareName":share_dir,"ShareType":"CIFS","FileName":file,"UserName":"administrator","Password":".!Pa55w0rd"}}
 headers = {'content-type': 'application/json'}
 response = requests.post(url, data=json.dumps(payload), headers=headers, verify=False, auth=(idrac_username,idrac_password))
 

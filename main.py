@@ -31,7 +31,7 @@ while loop:
 		sys.argv = [Config.get("SETTINGS","SHARE_IP"), Config.get("SETTINGS","FILENAME"), Config.get("SETTINGS","SHARE_DIR")]
 		exec(open("./deploy.py").read())
 	elif (choice==4):
-		print ("Choice:", choice)
+		exec(open("./deploy_local.py").read())
 	elif (choice==5):
 		## ends loop, since the 'while' will be false
 		loop=False
