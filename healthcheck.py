@@ -20,9 +20,13 @@ for server in servers:
 	system = requests.get('https://' + server.rstrip() + '/redfish/v1/Systems/System.Embedded.1',verify=False,auth=('root','calvin'))
 	storage = requests.get('https://' + server.rstrip() + '/redfish/v1/Systems/System.Embedded.1/Storage/Controllers/RAID.Integrated.1-1',verify=False,auth=('root','calvin'))
 	
+	# Convert to json
 	systemData = system.json()
 	storageData = storage.json()
 	
+	# Takes every key in json
+	# if that key is "Status", print the health
+	# if that key is a dictionary, go through the dictionary and print health if key is "Status"
 	for key in systemData:
 		if (key == "Status"):
 			print (key+": {}".format(systemData[u'Status'][u'Health']))

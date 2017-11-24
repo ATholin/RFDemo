@@ -22,20 +22,11 @@ f=open(file,"r")
 
 url = 'https://%s/redfish/v1/Managers/iDRAC.Embedded.1/Actions/Oem/EID_674_Manager.ImportSystemConfiguration' % idrac_ip
 
-# Code needed to modify the XML to one string to pass in for POST command
-z=f.read()
-z=re.sub(" \n ","",z)
-z=re.sub(" \n","",z)
-xml_string=re.sub("   ","",z)
-f.close()
-payload = {"ImportBuffer":"","ShareParameters":{"Target":"ALL"}}
-payload["ImportBuffer"]=xml_string
+payload = {"ShutdownType":"Forced","ShareParameters":{"Target":"All","IPAddress":"192.168.1.121","ShareName":"share","ShareType":"CIFS","FileName":file,"UserName":"test","Password":"test"}}
 headers = {'content-type': 'application/json'}
-response = requests.post(url, data=json.dumps(payload), headers=headers, verify=False, auth=('root','calvin'))
+response = requests.post(url, data=json.dumps(payload), headers=headers, verify=False, auth=(idrac_username,idrac_password))
 
-print(response.url)
-
-d=str(response.__dict__) 
+d=str(response.__dict__)
 
 try:
 	z=re.search("JID_.+?,",d).group()
