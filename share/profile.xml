@@ -7,7 +7,7 @@
 </Component>
 
 <Component FQDD="System.Embedded.1">
-	<Attribute Name="RepositoryUpdate">/repo/Catalog.xml</Attribute>
+	<!--<Attribute Name="RepositoryUpdate">/repo/Catalog.xml</Attribute>-->
 </Component>
 
 

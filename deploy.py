@@ -14,7 +14,10 @@ servers = []
 get_servers.get(servers)
 get_servers.printServers(servers)
 
-idrac_ip = input("iDRAC IP: ")
+idrac_index = input("Select Server: ")
+idrac_index = int(idrac_index)
+idrac_ip = str(servers[idrac_index-1])
+print("Selected server: "+idrac_ip)
 idrac_username = input("iDRAC username: ")
 idrac_password = input("iDRAC password: ")
 share_dir = sys.argv[2]
