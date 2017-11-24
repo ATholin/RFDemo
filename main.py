@@ -14,8 +14,6 @@ def print_menu():
 
 Config = configparser.ConfigParser()
 Config.read("settings.ini")
-share_ip = Config.get("SETTINGS","SHARE_IP")
-filename = Config.get("SETTINGS","FILENAME")
 
 loop=True
   
@@ -30,7 +28,7 @@ while loop:
 	elif (choice==2):
 		exec(open("./healthcheck.py").read())
 	elif (choice==3):
-		sys.argv = [Config.get("SETTINGS","SHARE_IP"), Config.get("SETTINGS","FILENAME")]
+		sys.argv = [Config.get("SETTINGS","SHARE_IP"), Config.get("SETTINGS","FILENAME"), Config.get("SETTINGS","SHARE_DIR")]
 		exec(open("./deploy.py").read())
 	elif (choice==4):
 		print ("Choice:", choice)
