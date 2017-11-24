@@ -37,4 +37,5 @@ ehthumbs.db
 Thumbs.db
 
 storageData.json
-systemData.json
+systemData
+.json
